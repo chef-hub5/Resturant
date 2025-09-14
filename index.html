@@ -300,6 +300,100 @@
             100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
         }
         
+        /* Mobile-specific fixes */
+        * {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+            
+            .container, .max-w-full, section, div {
+                max-width: 100vw !important;
+                overflow-x: hidden;
+            }
+            
+            /* Navigation fixes */
+            nav {
+                width: 100vw !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            nav > div {
+                width: 100% !important;
+                margin: 0 !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            /* Section padding fixes */
+            section {
+                width: 100vw !important;
+                margin: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            
+            section > div {
+                width: 100% !important;
+                margin: 0 !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            .grid {
+                gap: 1rem !important;
+            }
+            
+            .text-4xl {
+                font-size: 2rem !important;
+            }
+            
+            .text-6xl {
+                font-size: 3rem !important;
+            }
+            
+            .mb-16 {
+                margin-bottom: 2rem !important;
+            }
+            
+            .mb-12 {
+                margin-bottom: 1.5rem !important;
+            }
+            
+            /* Hero section mobile fixes */
+            #home {
+                width: 100vw !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            /* Footer mobile fixes */
+            footer {
+                width: 100vw !important;
+                margin: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            
+            footer > div {
+                width: 100% !important;
+                margin: 0 !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+        }
+
         /* Feedback Floating Button */
         .feedback-float {
             position: fixed;
@@ -319,6 +413,15 @@
             gap: 8px;
             min-width: 60px;
             overflow: hidden;
+        }
+        
+        @media (max-width: 640px) {
+            .feedback-float {
+                bottom: 20px;
+                left: 20px;
+                padding: 10px 16px;
+                min-width: 50px;
+            }
         }
         
         .feedback-float:hover {
@@ -385,6 +488,15 @@
             z-index: 1000;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             animation: whatsappPulse 2s infinite;
+        }
+        
+        @media (max-width: 640px) {
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
         }
         
         .whatsapp-float:hover {
@@ -1000,14 +1112,14 @@
 </head>
 <body class="font-inter bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full z-40">
-        <div class="max-w-full mx-auto px-2 sm:px-4 lg:px-6">
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="w-full px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <a href="#home" onclick="scrollToSection('home')" class="font-playfair text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors cursor-pointer">Bella Vista</a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                <a href="#home" onclick="scrollToSection('home')" class="font-playfair text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors cursor-pointer flex-shrink-0">Bella Vista</a>
+                <div class="hidden md:flex space-x-4 lg:space-x-6 xl:space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors text-sm lg:text-base">Home</a>
                     <div class="dropdown">
-                        <a href="#menu" class="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer">Menu</a>
+                        <a href="#menu" class="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer text-sm lg:text-base">Menu</a>
                         <div class="dropdown-content">
                             <a href="#menu" onclick="showMenuCategory('appetizers'); closeDropdowns();">Appetizers</a>
                             <a href="#menu" onclick="showMenuCategory('mains'); closeDropdowns();">Main Courses</a>
@@ -1016,7 +1128,7 @@
                         </div>
                     </div>
                     <div class="dropdown">
-                        <a href="#gallery" class="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer">Gallery</a>
+                        <a href="#gallery" class="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer text-sm lg:text-base">Gallery</a>
                         <div class="dropdown-content">
                             <a href="#gallery" onclick="showGalleryCategory('all'); closeDropdowns();">All Photos</a>
                             <a href="#gallery" onclick="showGalleryCategory('food'); closeDropdowns();">Food & Dishes</a>
@@ -1024,23 +1136,23 @@
                             <a href="#gallery" onclick="showGalleryCategory('events'); closeDropdowns();">Events & Occasions</a>
                         </div>
                     </div>
-                    <a href="#reservations" class="text-gray-700 hover:text-blue-600 transition-colors">Reservations</a>
-                    <a href="#order" class="text-gray-700 hover:text-blue-600 transition-colors">Order Online</a>
+                    <a href="#reservations" class="text-gray-700 hover:text-blue-600 transition-colors text-sm lg:text-base">Reservations</a>
+                    <a href="#order" class="text-gray-700 hover:text-blue-600 transition-colors text-sm lg:text-base">Order Online</a>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden">
+                <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2 flex items-center justify-center">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-amber-600">Home</a>
-                <a href="#menu" class="block px-3 py-2 text-gray-700 hover:text-amber-600">Menu</a>
-                <a href="#gallery" class="block px-3 py-2 text-gray-700 hover:text-amber-600">Gallery</a>
-                <a href="#reservations" class="block px-3 py-2 text-gray-700 hover:text-amber-600">Reservations</a>
-                <a href="#order" class="block px-3 py-2 text-gray-700 hover:text-amber-600">Order Online</a>
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t w-full">
+            <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors text-base">Home</a>
+                <a href="#menu" class="block px-3 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors text-base">Menu</a>
+                <a href="#gallery" class="block px-3 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors text-base">Gallery</a>
+                <a href="#reservations" class="block px-3 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors text-base">Reservations</a>
+                <a href="#order" class="block px-3 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors text-base">Order Online</a>
             </div>
         </div>
     </nav>
@@ -1050,7 +1162,7 @@
         <div class="grid md:grid-cols-2 w-full h-full">
             <!-- Left Side - Image -->
             <div class="relative overflow-hidden">
-                <img src="images/enterior.jpg" 
+                <img src="./images/restaurant-interior.jpg" 
                      alt="Restaurant Interior" 
                      class="w-full h-full object-cover"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -1064,7 +1176,7 @@
             <div class="relative overflow-hidden">
                 <video autoplay muted loop class="w-full h-full object-cover" 
                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <source src="images/video_2025-09-13_15-37-32.mp4" type="video/mp4">
+                    <source src="./videos/restaurant-ambiance.mp4" type="video/mp4">
                 </video>
                 <!-- Fallback gradient for right side -->
                 <div class="absolute inset-0 hero-bg" style="display: none;"></div>
@@ -1101,8 +1213,8 @@
     </section>
 
     <!-- About Section -->
-    <section class="py-20 bg-gray-100">
-        <div class="max-w-full mx-auto px-2 sm:px-4 lg:px-6">
+    <section class="py-12 sm:py-20 bg-gray-100">
+        <div class="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="fade-in">
                     <h2 class="font-playfair text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
@@ -1115,18 +1227,18 @@
                         breathtaking views and exceptional service that will make your evening unforgettable.
                     </p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&h=1080&fit=crop&crop=center" 
-                 alt="Restaurant Kitchen Background" 
-                 class="w-full h-[120%] object-cover"
-                
-                >
+                <div class="bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg p-8 h-96 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-6xl mb-4">🍝</div>
+                        <p class="text-amber-800 font-semibold">Authentic Italian Experience</p>
+                    </div>
+                </div>
             </div>
-        </div>
         </div>
     </section>
 
     <!-- Menu Section -->
-    <section id="menu" class="py-20 bg-gray-800 relative overflow-hidden">
+    <section id="menu" class="py-12 sm:py-20 bg-gray-800 relative overflow-hidden">
         <!-- Background Image with Parallax -->
         <div class="absolute inset-0 parallax-bg" data-speed="0.5">
             <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&h=1080&fit=crop&crop=center" 
@@ -1140,20 +1252,20 @@
         <div class="absolute inset-0 bg-black bg-opacity-70"></div>
         <!-- Content overlay -->
         <div class="relative z-10">
-        <div class="max-w-full mx-auto px-2 sm:px-4 lg:px-6">
+        <div class="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="font-playfair text-4xl font-bold text-white mb-4">Our Menu</h2>
                 <p class="text-gray-300 text-lg">Discover our carefully crafted dishes</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <button onclick="showMenuCategory('appetizers')" class="menu-category-btn bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors btn-hover pulse-on-hover">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-12">
+                <button onclick="showMenuCategory('appetizers')" class="menu-category-btn bg-blue-600 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors btn-hover pulse-on-hover text-sm sm:text-base">
                     Appetizers
                 </button>
-                <button onclick="showMenuCategory('mains')" class="menu-category-btn bg-gray-600 text-gray-200 px-6 py-3 rounded-lg font-semibold hover:bg-gray-500 transition-colors btn-hover pulse-on-hover">
+                <button onclick="showMenuCategory('mains')" class="menu-category-btn bg-gray-600 text-gray-200 px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-gray-500 transition-colors btn-hover pulse-on-hover text-sm sm:text-base">
                     Main Courses
                 </button>
-                <button onclick="showMenuCategory('desserts')" class="menu-category-btn bg-gray-600 text-gray-200 px-6 py-3 rounded-lg font-semibold hover:bg-gray-500 transition-colors btn-hover pulse-on-hover">
+                <button onclick="showMenuCategory('desserts')" class="menu-category-btn bg-gray-600 text-gray-200 px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-gray-500 transition-colors btn-hover pulse-on-hover text-sm sm:text-base">
                     Desserts
                 </button>
             </div>
@@ -1356,24 +1468,24 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-gray-100">
-        <div class="max-w-full mx-auto px-2 sm:px-4 lg:px-6">
+    <section id="gallery" class="py-12 sm:py-20 bg-gray-100">
+        <div class="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="font-playfair text-4xl font-bold text-gray-900 mb-4">Gallery</h2>
                 <p class="text-gray-600 text-lg">Experience our atmosphere and cuisine</p>
             </div>
 
-            <div class="grid md:grid-cols-4 gap-4 mb-8">
-                <button onclick="showGalleryCategory('all')" class="gallery-category-btn bg-transparent text-blue-600 px-6 py-3 font-semibold transition-colors relative border-b-2 border-blue-600">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 mb-6 sm:mb-8">
+                <button onclick="showGalleryCategory('all')" class="gallery-category-btn bg-transparent text-blue-600 px-3 sm:px-6 py-2 sm:py-3 font-semibold transition-colors relative border-b-2 border-blue-600 text-xs sm:text-base">
                     All Photos
                 </button>
-                <button onclick="showGalleryCategory('food')" class="gallery-category-btn bg-transparent text-gray-600 px-6 py-3 font-semibold transition-colors relative border-b-2 border-transparent hover:border-blue-600">
+                <button onclick="showGalleryCategory('food')" class="gallery-category-btn bg-transparent text-gray-600 px-3 sm:px-6 py-2 sm:py-3 font-semibold transition-colors relative border-b-2 border-transparent hover:border-blue-600 text-xs sm:text-base">
                     Food & Dishes
                 </button>
-                <button onclick="showGalleryCategory('interior')" class="gallery-category-btn bg-transparent text-gray-600 px-6 py-3 font-semibold transition-colors relative border-b-2 border-transparent hover:border-blue-600">
+                <button onclick="showGalleryCategory('interior')" class="gallery-category-btn bg-transparent text-gray-600 px-3 sm:px-6 py-2 sm:py-3 font-semibold transition-colors relative border-b-2 border-transparent hover:border-blue-600 text-xs sm:text-base">
                     Restaurant Interior
                 </button>
-                <button onclick="showGalleryCategory('events')" class="gallery-category-btn bg-transparent text-gray-600 px-6 py-3 font-semibold transition-colors relative border-b-2 border-transparent hover:border-blue-600">
+                <button onclick="showGalleryCategory('events')" class="gallery-category-btn bg-transparent text-gray-600 px-3 sm:px-6 py-2 sm:py-3 font-semibold transition-colors relative border-b-2 border-transparent hover:border-blue-600 text-xs sm:text-base">
                     Events & Occasions
                 </button>
             </div>
@@ -1382,7 +1494,7 @@
                 <!-- All Photos (default) -->
                 <div id="gallery-all" class="gallery-category grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="gallery-item h-64 rounded-lg overflow-hidden relative">
-                        <img src="images/wine.jpg" 
+                        <img src="./images/wine-selection.jpg" 
                              alt="Wine Selection" 
                              class="w-full h-full object-cover"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -1397,7 +1509,7 @@
                         </div>
                     </div>
                     <div class="gallery-item h-64 rounded-lg overflow-hidden relative">
-                        <img src="images/pasta.jpg" 
+                        <img src="./images/fresh-pasta.jpg" 
                              alt="Fresh Pasta" 
                              class="w-full h-full object-cover"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -1412,7 +1524,7 @@
                         </div>
                     </div>
                     <div class="gallery-item h-64 rounded-lg overflow-hidden relative">
-                        <img src="images/ingre.jpg" 
+                        <img src="./images/fresh-ingredients.jpg" 
                              alt="Fresh Ingredients" 
                              class="w-full h-full object-cover"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -1427,7 +1539,7 @@
                         </div>
                     </div>
                     <div class="gallery-item h-64 rounded-lg overflow-hidden relative">
-                        <img src="images/dessert.jpg" 
+                        <img src="./images/desserts.jpg" 
                              alt="Desserts" 
                              class="w-full h-full object-cover"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -1444,7 +1556,7 @@
                     <div class="gallery-item h-64 rounded-lg overflow-hidden relative col-span-2">
                         <video autoplay muted loop class="w-full h-full object-cover"
                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <source src="images/dining r.mp4" type="video/mp4">
+                            <source src="./videos/elegant-dining-room.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 bg-gradient-to-br from-blue-200 to-blue-400 flex items-center justify-center" style="display: none;">
                             <div class="text-center text-blue-800">
@@ -1457,7 +1569,7 @@
                         </div>
                     </div>
                     <div class="gallery-item h-64 rounded-lg overflow-hidden relative col-span-2">
-                        <img src="images/chefs.jpg" 
+                        <img src="./images/master-chefs.jpg" 
                              alt="Master Chefs" 
                              class="w-full h-full object-cover"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -1598,7 +1710,7 @@
     </section>
 
     <!-- Reservations Section -->
-    <section id="reservations" class="py-20 bg-gray-800 relative overflow-hidden">
+    <section id="reservations" class="py-12 sm:py-20 bg-gray-800 relative overflow-hidden">
         <!-- Background Image with Parallax -->
         <div class="absolute inset-0 parallax-bg" data-speed="0.3">
             <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&h=1080&fit=crop&crop=center" 
@@ -1612,7 +1724,7 @@
         <div class="absolute inset-0 bg-black bg-opacity-75"></div>
         <!-- Content overlay -->
         <div class="relative z-10">
-        <div class="max-w-full mx-auto px-2 sm:px-4 lg:px-6">
+        <div class="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="font-playfair text-4xl font-bold text-white mb-4">Make a Reservation</h2>
                 <p class="text-gray-300 text-lg">Book your table for an unforgettable dining experience</p>
@@ -1681,8 +1793,8 @@
     </section>
 
     <!-- Online Ordering Section -->
-    <section id="order" class="py-20 bg-gray-100">
-        <div class="max-w-full mx-auto px-2 sm:px-4 lg:px-6">
+    <section id="order" class="py-12 sm:py-20 bg-gray-100">
+        <div class="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="font-playfair text-4xl font-bold text-gray-900 mb-4">Order Online</h2>
                 <p class="text-gray-600 text-lg">Enjoy our cuisine from the comfort of your home</p>
@@ -1694,7 +1806,7 @@
                     <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 card-hover">
                         <div class="flex flex-col sm:flex-row gap-4 mb-4">
                             <div class="w-full sm:w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 menu-item-image" onclick="openImageViewer('https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&h=800&fit=crop&crop=center', 'Margherita Pizza', 'Fresh mozzarella, tomato sauce, basil on our signature wood-fired crust', '₦8,800')">
-                                <img src="images/pizza.jpg" 
+                                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=200&h=200&fit=crop&crop=center" 
                                      alt="Margherita Pizza" 
                                      class="w-full h-full object-cover"
                                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -1723,7 +1835,7 @@
                     <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 card-hover">
                         <div class="flex flex-col sm:flex-row gap-4 mb-4">
                             <div class="w-full sm:w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 menu-item-image" onclick="openImageViewer('https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=800&h=800&fit=crop&crop=center', 'Fettuccine Alfredo', 'Creamy parmesan sauce with fresh pasta, made with authentic Italian ingredients', '₦9,600')">
-                                <img src="images/alfredo.jpg" 
+                                <img src="https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=200&h=200&fit=crop&crop=center" 
                                      alt="Fettuccine Alfredo" 
                                      class="w-full h-full object-cover"
                                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -1950,8 +2062,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16">
-        <div class="max-w-full mx-auto px-2 sm:px-4 lg:px-6">
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="font-playfair text-2xl font-bold text-amber-400 mb-4">Bella Vista</h3>
@@ -1995,7 +2107,7 @@
 
     <!-- Developer Watermark -->
     <div class="bg-gray-950 py-3 border-t border-gray-800">
-        <div class="max-w-full mx-auto px-2 sm:px-4 lg:px-6">
+        <div class="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center">
                 <a href="https://jamesdev.portfolio.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-gray-500 hover:text-blue-400 transition-colors duration-300 text-sm group">
                     <span class="opacity-70 group-hover:opacity-100 transition-opacity">Developed by</span>
@@ -3530,5 +3642,5 @@
             }, 200);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e82bb01194923e',t:'MTc1Nzc3MjAyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97f1c40c73f1ffed',t:'MTc1Nzg3MjYzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
